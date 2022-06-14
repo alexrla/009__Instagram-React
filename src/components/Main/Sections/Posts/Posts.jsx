@@ -1,12 +1,14 @@
 import React from 'react';
 
 import Topo from './Post/Topo';
-import Meio from './Post/Meio';
-import Final from './Post/Final';
+import MeioFinal from './Post/MeioFinal';
+
 
 import { imagemUser1, imagemUser2, imagemPost1, imagemPost2, imagemCurtida1, imagemCurtida2 } from './Post/imagens';
 
 function Posts(props) {
+    const curtido = false;
+
     const informacoesPost = [
         {
             imagemUser: imagemUser1,
@@ -33,8 +35,7 @@ function Posts(props) {
                     return(
                         <div className="post" key={index}>
                             <Topo imagem={informacoes.imagemUser} legenda={informacoes.legenda} />
-                            <Meio imagem={informacoes.imagemPost} />
-                            <Final imagem={informacoes.curtiuImagem} user={informacoes.curtiuUser} pessoas={informacoes.pessoas} />
+                            <MeioFinal imagem={informacoes.curtiuImagem} imagemPost={informacoes.imagemPost} user={informacoes.curtiuUser} pessoas={informacoes.pessoas} curtido={curtido} />
                         </div>
                     )
                 })}
